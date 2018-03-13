@@ -1,0 +1,36 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+ ViewData["Title"] = "iPipeline";
+}
+
+        <script src="~/js/dundas.embed.min.js?id=123" type="text/javascript" ></script>
+
+              <script type="text/javascript">
+        var dundasBIUrl = "http://dundasbipoc.ipipenet.com:8000/"
+
+    
+    
+        document.addEventListener("DOMContentLoaded", function (event) {
+            
+                var dundasApp = dundas.embed.create(document.getElementById('dundasBI2'),{ });
+                var sessionId = "@(ViewData["Bob's sessionId"])";
+                dundasApp.dundasBIUrl = dundasBIUrl;
+                dundasApp.controllerType = dundas.embed.ControllerType.DASHBOARD;
+                dundasApp.fileSystemId = '2046f6e1-3dfb-44ea-93e4-6bb9dd6b3a02';
+                dundasApp.viewOptions = dundas.embed.ViewOptions.TOOLBAR_ONLY;
+                dundasApp.otherUrlParameterOptions = [new  dundas.embed.UrlParamterOption('sessionid', sessionId)];
+
+                dundasApp.load();
+                });
+
+
+  
+    
+    </script>
+       <p></p>   <p></p>   <p></p>
+       <!-- Create the container for the Dundas BI Embedded Application -->
+       <div id="dundasBI2" style="height: 1080px;" >
+         <p>Please Wait</p>
+    </div>
